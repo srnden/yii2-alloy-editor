@@ -1,0 +1,55 @@
+.alloy-editor-widget-panel {
+    position: absolute;
+    display: none;
+    width: 185px;
+    background-color: #32a8e6;
+    border-radius: 3px;
+    padding: 2px 9px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.alloy-editor-widget-btn {
+    display: inline-block;
+    border: 1px solid #32A8E6;
+    color: #32A8E6;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    font-family: Verdana;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    padding: 3px 28px;
+    background-color: #FFFFFF;
+}
+
+.alloy-editor-widget-btn:hover, .alloy-editor-widget-btn:active {
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    background-color: #32A8E6;
+}
+
+.alloy-editor-widget-progress {
+    display: none;
+    padding: 10px 0;
+}
+
+.alloy-editor-widget-progress > div {
+    font-size: 8px;
+    color: #FFFFFF;
+}
+
+.ae-ui .icon-floppy {
+    display: block;
+    background: url("../img/floppy-icon.png");
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+}
+
+.ae-ui button:hover .icon-floppy {
+    background-position: 0 -20px;
+}
