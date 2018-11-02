@@ -13,7 +13,8 @@
     var AlloyEditorWidget = function () {
         this.editor = null;
         this.settings = {
-            panelClass: 'alloy-editor-widget-panel-item'
+            panelClass: 'alloy-editor-widget-panel-item',
+            afterSave: false
         };
         this.i18n = {
             en: {
@@ -228,6 +229,8 @@
                 success: function (response) {
                     if (response.success) {
                         callback(response);
+                    } else {
+                        _t.processLine(response.message);
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -250,12 +253,12 @@
                     if (response.success) {
                         _t.processClear();
                         _t.processLine(_t.translate('ready'));
-
-                        // setTimeout(function () {
-                        //     w.location.reload();
-                        // }, 1000);
                     } else {
                         _t.processLine(response.message);
+                    }
+
+                    if (typeof _t.settings.afterSave === "function") {
+                        _t.settings.afterSave(response);
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

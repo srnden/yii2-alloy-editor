@@ -38,9 +38,6 @@ class AlloyEditorActionsAsset extends AssetBundle
 
     /**
      * @param string $lang
-     * @param string $prefix
-     * @param null $dir
-     * @param bool $min
      * @return $this
      */
     public function addLanguage($lang = '')
@@ -50,9 +47,8 @@ class AlloyEditorActionsAsset extends AssetBundle
         }
 
         $lang = str_replace('-', '_', $lang);
-        $ext = 'js'; //todo min?
+        $ext = 'js';
         $dir = 'js/i18n';
-        $file = "{$this->sourcePath}/{$dir}/{$lang}.{$ext}";
 
         if (file_exists("{$this->sourcePath}/{$dir}/{$lang}.{$ext}")) {
             $this->js[] = "{$dir}/{$lang}.{$ext}";

@@ -11,6 +11,7 @@ use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\web\JsExpression;
 use yii\web\View;
 use srnden\alloyeditor\assets\AlloyEditorAsset;
 use srnden\alloyeditor\assets\AlloyEditorActionsAsset;
@@ -45,6 +46,26 @@ class AlloyEditor extends Widget
      *
      */
     public $saveAction;
+
+    /**
+     * @var null|string|JsExpression After save javascript function.
+     * Example:
+     * ```php
+     * [
+     *  ...
+     *  'afterSave' => new JsExpression("
+     *      function(response) {
+     *          //console.info(response);
+     *          setTimeout(function () {
+     *              window.location.reload();
+     *          }, 1000);
+     *      }
+     *  ")
+     *  ...
+     * ]
+     * ```
+     */
+    public $afterSave = null;
 
     /**
      * @var string Image save type.
@@ -100,6 +121,10 @@ class AlloyEditor extends Widget
         AlloyEditorAsset::register($this->getView());
         AlloyEditorActionsAsset::register($this->getView())->addLanguage($this->language);
 
+        if($this->afterSave !== null) {
+            $jsOptions['afterSave'] = self::parseJsExpression($this->afterSave);
+        }
+
         $jsOptions = Json::encode($jsOptions);
 
         $js = <<<JS
@@ -154,5 +179,17 @@ JS;
             'sourceLanguage' => 'en-US',
             'basePath' => '@vendor/srnden/yii2-alloy-editor/src/messages',
         ];
+    }
+
+    /**
+     * Parses and returns a JsExpression
+     *
+     * @param string|JsExpression $value
+     *
+     * @return JsExpression
+     */
+    protected static function parseJsExpression($value)
+    {
+        return $value instanceof JsExpression ? $value : new JsExpression($value);
     }
 }
