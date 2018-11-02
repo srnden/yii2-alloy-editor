@@ -12,14 +12,12 @@ class Bootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        //Add url manager rules
+        // Add url manager rules
         $app->getUrlManager()->addRules([
             'alloyeditor/images/upload' => 'alloyeditor/images/upload',
         ], false);
 
-        /*
-         * Register the module in the application
-         */
+        // Register the module in the application
         $app->setModule('alloyeditor', [
             'class' => '\srnden\alloyeditor\Module',
         ]);

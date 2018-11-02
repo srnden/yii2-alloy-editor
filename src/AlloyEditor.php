@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Denis
+ * @author Denis A
  */
 
 namespace srnden\alloyeditor;
@@ -26,17 +26,17 @@ class AlloyEditor extends Widget
     private $_wrapperID;
 
     /**
-     * @var string Html тег обёртки редактируемого контента.
+     * @var string container tag.
      */
     public $tag = 'div';
 
     /**
-     * @var array Массив HTML опция для tag.
+     * @var array tag options.
      */
     public $options = [];
 
     /**
-     * @var string Локализация.
+     * @var string the locale ID (e.g. 'ru', 'en') for the language to be used by the AlloyEditor Widget. Default 'en'.
      */
     public $language = 'en';
 
@@ -47,14 +47,14 @@ class AlloyEditor extends Widget
     public $saveAction;
 
     /**
-     * @var string
+     * @var string Image save type.
      * Default is self::IMAGE_SAVE_TYPE_DEFAULT.
      */
     public $imageSaveType;
 
     /**
-     * @var string
-     * Images save action url. Required when $imageSaveType = self::IMAGE_SAVE_TYPE_UPLOAD. Default is 'alloy-editor/images/upload'
+     * @var string Images save action url.
+     * Required when $imageSaveType = self::IMAGE_SAVE_TYPE_UPLOAD. Default is 'alloy-editor/images/upload'
      */
     public $imageSaveAction;
 
@@ -65,8 +65,7 @@ class AlloyEditor extends Widget
     public static $autoIdPrefix = 'alloyEditor';
 
     /**
-     * Регистрация AlloyEditorAsset.
-     * Инициализация AlloyEditor.
+     * init AlloyEditor.
      */
     public function initEditor()
     {
@@ -112,7 +111,7 @@ JS;
     }
 
     /**
-     * Стартуем виджет.
+     * Start widget.
      */
     public function init()
     {
@@ -135,7 +134,7 @@ JS;
     }
 
     /**
-     * Закрываем виджет.
+     * Close widget.
      * @return string|void
      */
     public function run()
