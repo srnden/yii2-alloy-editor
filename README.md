@@ -1,4 +1,4 @@
-Yii2 Alloy Editor (beta)
+Yii2 Alloy Editor
 
 =================
 
@@ -22,7 +22,7 @@ Either run
 
 ```
 
-php composer.phar require --prefer-dist srnden/yii2-alloy-editor "dev-master"
+php composer.phar require --prefer-dist srnden/yii2-alloy-editor "~1.0.0"
 
 ```
 
@@ -34,7 +34,7 @@ or add
 
 ```
 
-"srnden/yii2-alloy-editor": "dev-master"
+"srnden/yii2-alloy-editor": "~1.0.0"
 
 ```
 
