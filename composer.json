@@ -15,7 +15,7 @@
   ],
   "require": {
     "yiisoft/yii2": "~2.0.0",
-    "bower-asset/alloyeditor": "^1.0.1"
+    "bower-asset/alloyeditor": "^1.0.1,<=1.5.25"
   },
   "extra": {
     "bootstrap": "srnden\\alloyeditor\\Bootstrap",
